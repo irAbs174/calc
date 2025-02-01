@@ -15,7 +15,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+    'index',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -33,7 +34,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'frontend')
+            os.path.join(BASE_DIR, 'frontend/html')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -80,7 +81,21 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = os.path.join(BASE_DIR, 'frontend/assets/')
+# STATIC FILES DIRS
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "frontend/assets")]
+
+# Manifest Static Files Storage is recommended in production, to prevent outdated
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+# static root Dir configuration 
+STATIC_ROOT = '/var/www/public/kikpick/static'
+
+# STATIC URL
+STATIC_URL = '/static/'
+
+# Media root Dir configuration
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
