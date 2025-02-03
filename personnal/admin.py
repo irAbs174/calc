@@ -3,16 +3,16 @@ from .models import Department, CorporatePersonnel
 
 @admin.register(Department)
 class DepartmentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description')
-    search_fields = ('name',)
+    list_display = ('department_name', 'description')
+    search_fields = ('department_name',)
 
 @admin.register(CorporatePersonnel)
 class CorporatePersonnelAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email', 'position', 'department', 'employment_status', 'date_hired')
-    list_filter = ('employment_status', 'department', 'date_hired')
-    search_fields = ('first_name', 'last_name', 'email', 'position')
+    list_display = ('personnal_first_name', 'personnal_last_name', 'personnal_email', 'personnal_position', 'personnal_department', 'personnal_type', 'personnal_date_hired')
+    list_filter = ('personnal_type_status', 'personnal_department', 'personnal_date_hired')
+    search_fields = ('personnal_first_name', 'personnal_last_name', 'personnal_email', 'personnal_position')
     fieldsets = (
-        ('اطلاعات شخصی', {'fields': ('first_name', 'last_name', 'email', 'phone_number', 'birth_date', 'address')}),
-        ('اطلاعات شغلی', {'fields': ('position', 'department', 'date_hired', 'employment_status', 'salary')}),
-        ('سایر اطلاعات', {'fields': ('profile_picture', 'emergency_contact')}),
+        ('اطلاعات شخصی', {'fields': ('personnal_first_name', 'personnal_last_name', 'personnal_email', 'personnal_phone_number', 'personnal_birth_date', 'personnal_address')}),
+        ('اطلاعات شغلی', {'fields': ('personnal_position', 'personnal_department', 'personnal_date_hired', 'personnal_type', 'personnal_salary',)}),
+        ('سایر اطلاعات', {'fields': ('personnal_emergency_contact',)}),
     )
