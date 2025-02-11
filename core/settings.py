@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'report',
     'supplier',
     'category',
+    'accounts',
     ]
 
 MIDDLEWARE = [
@@ -40,7 +41,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'frontend')
+            os.path.join(BASE_DIR, 'frontend/templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -88,7 +89,7 @@ USE_TZ = True
 
 
 # STATIC FILES DIRS
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "frontend/assets")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "frontend/templates/assets")]
 
 # Manifest Static Files Storage is recommended in production, to prevent outdated
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
