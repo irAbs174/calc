@@ -1,0 +1,49 @@
+{
+  "name": "electron_calc",
+  "version": "1.0.0",
+  "description": "Inventory / products and calculating system",
+  "keywords": [
+    "Free",
+    "And",
+    "Open",
+    "Source"
+  ],
+  "homepage": "https://github.com/irAbs174/electron_calc#readme",
+  "bugs": {
+    "url": "https://github.com/irAbs174/electron_calc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irAbs174/electron_calc.git"
+  },
+  "license": "ISC",
+  "author": "Abbas Damerchilo",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.example.calc",
+    "productName": "Calc Inventory system",
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Utility"
+    }
+  },
+  "devDependencies": {
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

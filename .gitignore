@@ -1,2 +1,4 @@
 env
 sec.py
+node_modules
+package-lock.json
