@@ -8,6 +8,7 @@
     <!-- BOOTSTRAP CSS -->
     <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" id="style" rel="stylesheet"/>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- STYLE CSS -->
     <link href="../assets/css/style.css" rel="stylesheet"/>
     <link href="../assets/css/plugins.css" rel="stylesheet"/>
@@ -564,6 +565,68 @@
                     <!--/APP-SIDEBAR-->
                 </div>
 
+        <!--app-content open-->
+        <div class="main-content app-content mt-0">
+            <div class="side-app">
+
+                <!-- CONTAINER -->
+                <div class="main-container container-fluid">
+
+                    <!-- PAGE-HEADER -->
+                    <div class="page-header">
+                        <h1 class="page-title">افزودن انباردار</h1>
+                        <div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">انباردار</a></li>
+                                <li aria-current="page" class="breadcrumb-item active">افزودن انباردار جدید</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- PAGE-HEADER END -->
+
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">لطفا یکی از پرسنل را به عنوان متصدی انبار انتخاب کنید</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control form-select select2 inventory_manager" data-bs-placeholder="Select Country"
+                                                    name="country">
+                                                <option value="تست">تست</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">یک انبار انتخاب کنید :</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control form-select select2 inventory_category" data-bs-placeholder="Select Country"
+                                                    name="country">
+                                                <option value="br">تست</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!--End Row-->
+                                </div>
+                                <div class="card-footer">
+                                    <!--Row-->
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">
+                                            <a class="btn btn-primary add_inventory_btn" href="javascript:void(0)">افزودن انباردار</a>
+                                            <a class="btn btn-default float-end" href="../dashboard/dashboard.html">انصراف</a>
+                                        </div>
+                                    </div>
+                                    <!--End Row-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ROW-1 CLOSED -->
+                </div>
+                <!-- CONTAINER CLOSED -->
+            </div>
+        </div>
+        <!--app-content closed-->
+        <!--app-content closed-->
     </div>
 
     <!-- FOOTER -->
@@ -621,37 +684,5 @@
 
 </body>
 
-<script>
-$.ajax({
-url: 'http://127.0.0.1:8000/inventory/list', 
-method: 'POST',
-success: function(response) {
-    response.message.forEach((inventory) => {
-            $('.tbody').append(`
-            <tr>
-                <td>${inventory.name}</td>
-                <td>${inventory.category}</td>
-                <td>${inventory.location}</td>
-                <td>${inventory.capacity}</td>
-                <td>${inventory.manager}</td>
-                </td>
-            </tr>
-            `);
-        });
-},
-error: function(xhr) {
-    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
-    if (xhr.responseJSON && xhr.responseJSON.error) {
-        errorMessage = xhr.responseJSON.error;
-    }
-    alert(errorMessage);
-},
-complete: function() {
-    $btn.prop('disabled', false).html('افزودن انبار');
-}
-});
-    $(".tbody").append(`
-`);
-</script>
 
 </html>

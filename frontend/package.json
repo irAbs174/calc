@@ -22,15 +22,13 @@
   "main": "app.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --linux"
+    "build": "electron-builder --windows"
   },
   "build": {
     "appId": "com.example.calc",
     "productName": "Calc Inventory system",
     "linux": {
-      "target": [
-        "AppImage"
-      ],
+      "target": ["nsis", "portable"],
       "category": "Utility"
     }
   },

@@ -563,7 +563,29 @@
                     </div>
                     <!--/APP-SIDEBAR-->
                 </div>
-
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">لیست انبار دار ها</h3>
+                    </div>
+                    <div class="card-body">
+                        <a href="../inventory/new_manager.html">
+                            <button class="btn btn-primary mb-4" id="table2-new-row-button"> تعریف انباردار جدید
+                            </button>
+                        </a>
+                        <div class="table-responsive">
+                            <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+                                <thead>
+                                <tr>
+                                    <th>نام انباردار</th>
+                                    <th>نام انبار تحویل شده</th>
+                                    <th>کد پرسنلی</th>
+                                </thead>
+                                <tbody class="tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
     </div>
 
     <!-- FOOTER -->
@@ -620,38 +642,5 @@
 <script src="../assets/switcher/js/switcher.js"></script>
 
 </body>
-
-<script>
-$.ajax({
-url: 'http://127.0.0.1:8000/inventory/list', 
-method: 'POST',
-success: function(response) {
-    response.message.forEach((inventory) => {
-            $('.tbody').append(`
-            <tr>
-                <td>${inventory.name}</td>
-                <td>${inventory.category}</td>
-                <td>${inventory.location}</td>
-                <td>${inventory.capacity}</td>
-                <td>${inventory.manager}</td>
-                </td>
-            </tr>
-            `);
-        });
-},
-error: function(xhr) {
-    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
-    if (xhr.responseJSON && xhr.responseJSON.error) {
-        errorMessage = xhr.responseJSON.error;
-    }
-    alert(errorMessage);
-},
-complete: function() {
-    $btn.prop('disabled', false).html('افزودن انبار');
-}
-});
-    $(".tbody").append(`
-`);
-</script>
 
 </html>
