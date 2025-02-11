@@ -574,11 +574,11 @@
 
                     <!-- PAGE-HEADER -->
                     <div class="page-header">
-                        <h1 class="page-title">افزودن انبار</h1>
+                        <h1 class="page-title">افزودن دسته بندی انبار</h1>
                         <div>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">انبار</a></li>
-                                <li aria-current="page" class="breadcrumb-item active">افزودن انبار جدید</li>
+                                <li aria-current="page" class="breadcrumb-item active">افزودن دسته بندی انبار جدید</li>
                             </ol>
                         </div>
                     </div>
@@ -589,56 +589,29 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">افزودن انبار جدید</div>
+                                    <div class="card-title">افزودن دسته بندی انبار جدید</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row mb-4">
-                                        <label class="col-md-3 form-label">نام انبار :</label>
+                                        <label class="col-md-3 form-label">نام دسته بندی انبار :</label>
                                         <div class="col-md-9">
-                                            <input class="form-control invenrory_name" placeholder="نام انبار" type="text">
+                                            <input class="form-control category_name" placeholder="نام دسته بندی انبار" type="text">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
-                                        <label class="col-md-3 form-label">موقعیت جفرافیایی انبار :</label>
+                                        <label class="col-md-3 form-label">توضیحات دسته بندی انبار :</label>
                                         <div class="col-md-9">
-                                            <input class="form-control inventory_location" placeholder="موقعیت جغرافیایی انبار" type="text">
+                                            <input class="form-control category_desc" placeholder="توضیحات دسته بندی انبار" type="text">
                                         </div>
                                     </div>
-                                    <div class="row mb-4">
-                                        <label class="col-md-3 form-label">ظرفیت انبار :</label>
-                                        <div class="col-md-9">
-                                            <input class="form-control inventory_capacity" placeholder="ظرفیت انبار" type="number">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
-                                        <label class="col-md-3 form-label">متصدی انبار:</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control form-select select2 inventory_manager" data-bs-placeholder="Select Country"
-                                                    name="country">
-                                                <option value="تست">تست</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-4">
-                                        <label class="col-md-3 form-label">دسته بندی :</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control form-select select2 inventory_category" data-bs-placeholder="Select Country"
-                                                    name="country">
-                                                <option value="br">تست</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <!--End Row-->
                                 </div>
                                 <div class="card-footer">
                                     <!--Row-->
                                     <div class="row">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-9">
-                                            <a class="btn btn-primary add_inventory_btn" href="javascript:void(0)">افزودن انبار</a>
-                                            <a class="btn btn-default float-end" href="javascript:void(0)">انصراف</a>
+                                            <a class="btn btn-primary add_inventory_category_btn" href="javascript:void(0)">افزودن دسته بندی انبار</a>
+                                            <a class="btn btn-default float-end" href="../dashboard/dashboard.html">انصراف</a>
                                         </div>
                                     </div>
                                     <!--End Row-->
@@ -712,21 +685,18 @@
     $(document).ready(function() {
         
         // Warehouse Form Submission
-        $('.add_inventory_btn').click(function(e) {
+        $('.add_inventory_category_btn').click(function(e) {
             e.preventDefault();
             
             // Get form data
             const formData = {
-                name: $('.invenrory_name').val(),
-                location: $('.inventory_location').val(),
-                capacity: $('.inventory_capacity').val(),
-                manager: $('.inventory_manager').val(),
-                category: $('.inventory_category').val()
+                name: $('.category_name').val(),
+                location: $('.category_desc').val(),
             };
 
             // AJAX Request
             $.ajax({
-                url: 'http://127.0.0.1:8000/inventory/create_new', // Update with your actual endpoint
+                url: 'http://127.0.0.1:8000/inventory/create_new_category', // Update with your actual endpoint
                 method: 'POST',
                 data: formData,
                 success: function(response) {

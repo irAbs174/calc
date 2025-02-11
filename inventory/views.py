@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import inventory
+from .models import inventory, cetegory
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
@@ -47,6 +47,51 @@ def inventory_list(request):
                 'capacity': i.inventory_capacity,
                 'manager': i.personnal_id,
 
+            }
+            )
+        
+        
+    return JsonResponse({
+        'status': '200',
+        'message': ctx,
+        'success': True,
+    })
+
+@csrf_exempt
+def create_new_category(request):
+    category_name = request.POST.get("name")
+    category_desc = request.POST.get("desc")
+    ctx = {}
+    category_id = f"{category_name}"
+
+    if cetegory.objects.filter(category_id=category_id).exists():
+        ctx = {
+            'icon': 'info',
+            'message': 'دسته بندی از قبل موجود است',
+            'success': True
+        }
+    else:
+        cetegory.objects.create(
+            category_id = category_id,
+            category_name = category_name,
+            category_desc = category_desc,
+        )
+        ctx = {
+            'icon': 'success',
+            'message': 'دسته بندی ایجاد شد',
+            'success': True
+        }
+    return JsonResponse(ctx)
+
+@csrf_exempt
+def category_list(request):
+    ctx = []
+    for i in cetegory.objects.all():
+        ctx.append(
+            {
+                'id': i.category_id,
+                'name': i.category_name,
+                'desc': i.category_desc,
             }
             )
         
