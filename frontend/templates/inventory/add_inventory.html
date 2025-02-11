@@ -6,28 +6,29 @@
     <meta content='width=device-width, initial-scale=1.0, user-scalable=0' name='viewport'>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <!-- BOOTSTRAP CSS -->
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" id="style" rel="stylesheet"/>
+    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" id="style" rel="stylesheet"/>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet"/>
-    <link href="assets/css/plugins.css" rel="stylesheet"/>
-    <link href="assets/css/dark-style.css" rel="stylesheet"/>
-    <link href="assets/css/transparent-style.css" rel="stylesheet">
-    <link href="assets/css/skin-modes.css" rel="stylesheet"/>
+    <link href="../assets/css/style.css" rel="stylesheet"/>
+    <link href="../assets/css/plugins.css" rel="stylesheet"/>
+    <link href="../assets/css/dark-style.css" rel="stylesheet"/>
+    <link href="../assets/css/transparent-style.css" rel="stylesheet">
+    <link href="../assets/css/skin-modes.css" rel="stylesheet"/>
 
     <!--- FONT-ICONS CSS -->
-    <link href="assets/css/icons.css" rel="stylesheet"/>
+    <link href="../assets/css/icons.css" rel="stylesheet"/>
 
     <!-- COLOR SKIN CSS -->
-    <link href="assets/colors/color1.css" id="theme" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../assets/colors/color1.css" id="theme" media="all" rel="stylesheet" type="text/css"/>
 
     <!-- INTERNAL Switcher css -->
-    <link href="assets/switcher/css/switcher.css" rel="stylesheet"/>
-    <link href="assets/switcher/demo.css" rel="stylesheet"/>
+    <link href="../assets/switcher/css/switcher.css" rel="stylesheet"/>
+    <link href="../assets/switcher/demo.css" rel="stylesheet"/>
 
 
-    <link href="assets/fonts/styles-fa-num/iran-yekan.css" id="fonts" rel="stylesheet">
-    <link href="assets/css/rtl.css" rel="stylesheet"/>
+    <link href="../assets/fonts/styles-fa-num/iran-yekan.css" id="fonts" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet"/>
 </head>
 
 <body class="app sidebar-mini rtl">
@@ -184,13 +185,13 @@
                             </div>
                             <div class="switch-toggle d-flex mt-2">
                                 <a class="bg-img1" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage1" src="assets/images/media/bg-img1.jpg"></a>
+                                        alt="Bg-Image" id="bgimage1" src="../assets/images/media/bg-img1.jpg"></a>
                                 <a class="bg-img2" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage2" src="assets/images/media/bg-img2.jpg"></a>
+                                        alt="Bg-Image" id="bgimage2" src="../assets/images/media/bg-img2.jpg"></a>
                                 <a class="bg-img3" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage3" src="assets/images/media/bg-img3.jpg"></a>
+                                        alt="Bg-Image" id="bgimage3" src="../assets/images/media/bg-img3.jpg"></a>
                                 <a class="bg-img4" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage4" src="assets/images/media/bg-img4.jpg"></a>
+                                        alt="Bg-Image" id="bgimage4" src="../assets/images/media/bg-img4.jpg"></a>
                             </div>
                         </div>
                     </div>
@@ -431,7 +432,7 @@
 
 <!-- GLOBAL-LOADER -->
 <div id="global-loader">
-    <img alt="Loader" class="loader-img" src="assets/images/loader.svg">
+    <img alt="Loader" class="loader-img" src="../assets/images/loader.svg">
 </div>
 <!-- /GLOBAL-LOADER -->
 
@@ -498,7 +499,7 @@
                                             class="side-menu__label">مدیریت گردش کالا</span><i
                                             class="angle fe fe-chevron-right"></i></a>
                                     <ul class="slide-menu">
-                                        <li class="side-menu-label1"><a href="javascript:void(0)">مدیریت گردش محصول</a></li>
+                                        <li class="side-menu-label1"><a href="javascript:void(0)">مدیریت گردش انبار</a></li>
                                         <li><a class="slide-item" href="empty.html">ثبت ورودی کالا در انبار</a></li>
                                         <li><a class="slide-item" href="empty.html">ثبت خروجی کالا در انبار</a></li>
                                         <li><a class="slide-item" href="empty.html">تاریخچه گردش کالاها</a></li>
@@ -511,8 +512,8 @@
                                             class="angle fe fe-chevron-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">مدیریت انبار</a></li>
-                                        <li><a class="slide-item" href="empty.html">فهرست انبار ها</a></li>
-                                        <li><a class="slide-item" href="empty.html">ایجاد انبار</a></li>
+                                        <li><a class="slide-item" href="../inventory/inventory_list.html">فهرست انبار ها</a></li>
+                                        <li><a class="slide-item" href="../inventory/add_inventory.html">ایجاد انبار</a></li>
                                         <li><a class="slide-item" href="empty.html">فهرست دسته بندی انبار ها</a></li>
                                         <li><a class="slide-item" href="empty.html">ایجاد دسته بندی انبار</a></li>
                                         <li><a class="slide-item" href="empty.html">فهرست انبار دار ها</a></li>
@@ -527,9 +528,9 @@
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">مدیریت کالاها</a></li>
                                         <li><a class="slide-item" href="empty.html">فهرست کالاها</a></li>
-                                        <li><a class="slide-item" href="empty.html">ایجاد محصول</a></li>
+                                        <li><a class="slide-item" href="empty.html">ایجاد انبار</a></li>
                                         <li><a class="slide-item" href="empty.html">فهرست دسته بندی کالاها</a></li>
-                                        <li><a class="slide-item" href="empty.html">ایجاد دسته بندی محصول</a></li>
+                                        <li><a class="slide-item" href="empty.html">ایجاد دسته بندی انبار</a></li>
                                     </ul>
                                 </li>
                                 <li class="slide">
@@ -573,11 +574,11 @@
 
                     <!-- PAGE-HEADER -->
                     <div class="page-header">
-                        <h1 class="page-title">افزودن محصول</h1>
+                        <h1 class="page-title">افزودن انبار</h1>
                         <div>
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">صفحات</a></li>
-                                <li aria-current="page" class="breadcrumb-item active">افزودن محصول</li>
+                                <li aria-current="page" class="breadcrumb-item active">افزودن انبار</li>
                             </ol>
                         </div>
                     </div>
@@ -588,51 +589,47 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">افزودن محصول جدید</div>
+                                    <div class="card-title">افزودن انبار جدید</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row mb-4">
-                                        <label class="col-md-3 form-label">نام محصول :</label>
+                                        <label class="col-md-3 form-label">نام انبار :</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" placeholder="نام محصول" type="text">
+                                            <input class="form-control invenrory_name" placeholder="نام انبار" type="text">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
-                                        <label class="col-md-3 form-label">قیمت :</label>
+                                        <label class="col-md-3 form-label">موقعیت جفرافیایی انبار :</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="number">
+                                            <input class="form-control inventory_location" placeholder="موقعیت جغرافیایی انبار" type="text">
                                         </div>
                                     </div>
                                     <div class="row mb-4">
-                                        <label class="col-md-3 form-label">دسته بندی :</label>
+                                        <label class="col-md-3 form-label">ظرفیت انبار :</label>
                                         <div class="col-md-9">
-                                            <select class="form-control form-select select2" data-bs-placeholder="Select Country"
+                                            <input class="form-control inventory_capacity" placeholder="ظرفیت انبار" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">متصدی انبار:</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control form-select select2 inventory_manager" data-bs-placeholder="Select Country"
                                                     name="country">
-                                                <option value="br">الکترونیک</option>
-                                                <option value="cz">مد</option>
-                                                <option value="de">دکور خانه</option>
-                                                <option value="pl">مبلمان</option>
+                                                <option value="تست">تست</option>
                                             </select>
                                         </div>
                                     </div>
 
-                                    <!-- Row -->
-                                    <div class="row">
-                                        <label class="col-md-3 form-label mb-4">توضیحات محصول :</label>
-                                        <div class="col-md-9 mb-4">
-                                            <textarea class="content" name="example"></textarea>
-                                        </div>
-                                    </div>
-                                    <!--End Row-->
-
-                                    <!--Row-->
-                                    <div class="row">
-                                        <label class="col-md-3 form-label mb-4">بارگذاری محصول :</label>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">دسته بندی :</label>
                                         <div class="col-md-9">
-                                            <input accept=".jpg, .png, image/jpeg, image/png" id="demo" multiple
-                                                   name="files" type="file">
+                                            <select class="form-control form-select select2 inventory_category" data-bs-placeholder="Select Country"
+                                                    name="country">
+                                                <option value="br">تست</option>
+                                            </select>
                                         </div>
                                     </div>
+
                                     <!--End Row-->
                                 </div>
                                 <div class="card-footer">
@@ -640,7 +637,7 @@
                                     <div class="row">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-9">
-                                            <a class="btn btn-primary" href="javascript:void(0)">افزودن محصول</a>
+                                            <a class="btn btn-primary add_inventory_btn" href="javascript:void(0)">افزودن انبار</a>
                                             <a class="btn btn-default float-end" href="javascript:void(0)">انصراف</a>
                                         </div>
                                     </div>
@@ -675,41 +672,83 @@
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
 <!-- JQUERY JS -->
-<script src="assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
 
 <!-- BOOTSTRAP JS -->
-<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- TypeHead js -->
-<script src="assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
-<script src="assets/js/typehead.js"></script>
+<script src="../assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
+<script src="../assets/js/typehead.js"></script>
 
 <!-- Perfect SCROLLBAR JS-->
-<script src="assets/plugins/p-scroll/perfect-scrollbar.js"></script>
-<script src="assets/plugins/p-scroll/pscroll.js"></script>
-<script src="assets/plugins/p-scroll/pscroll-1.js"></script>
+<script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+<script src="../assets/plugins/p-scroll/pscroll.js"></script>
+<script src="../assets/plugins/p-scroll/pscroll-1.js"></script>
 
 <!-- SIDE-MENU JS -->
-<script src="assets/plugins/sidemenu/sidemenu.js"></script>
+<script src="../assets/plugins/sidemenu/sidemenu.js"></script>
 
 <!-- SIDEBAR JS -->
-<script src="assets/plugins/sidebar/sidebar.js"></script>
+<script src="../assets/plugins/sidebar/sidebar.js"></script>
 
 <!-- Color Theme js -->
-<script src="assets/js/themeColors.js"></script>
+<script src="../assets/js/themeColors.js"></script>
 
 <!-- Sticky js -->
-<script src="assets/js/sticky.js"></script>
+<script src="../assets/js/sticky.js"></script>
 
 <!-- CUSTOM JS -->
-<script src="assets/js/custom.js"></script>
+<script src="../assets/js/custom.js"></script>
 
 <!-- Custom-switcher -->
-<script src="assets/js/custom-swicher.js"></script>
+<script src="../assets/js/custom-swicher.js"></script>
 
 <!-- Switcher js -->
-<script src="assets/switcher/js/switcher.js"></script>
+<script src="../assets/switcher/js/switcher.js"></script>
+
+<script>
+    $(document).ready(function() {
+        
+        // Warehouse Form Submission
+        $('.add_inventory_btn').click(function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: $('.invenrory_name').val(),
+                location: $('.inventory_location').val(),
+                capacity: $('.inventory_capacity').val(),
+                manager: $('.inventory_manager').val(),
+                category: $('.inventory_category').val()
+            };
+
+            // AJAX Request
+            $.ajax({
+                url: 'http://127.0.0.1:8000/inventory/create_new', // Update with your actual endpoint
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    Swal.fire({
+                    title: response.message,
+                    icon: response.icon
+                    });
+                },
+                error: function(xhr) {
+                    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    }
+                    alert(errorMessage);
+                },
+                complete: function() {
+                    $btn.prop('disabled', false).html('افزودن انبار');
+                }
+            });
+        });
+    });
+    </script>
 
 </body>
 

@@ -6,28 +6,28 @@
     <meta content='width=device-width, initial-scale=1.0, user-scalable=0' name='viewport'>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <!-- BOOTSTRAP CSS -->
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" id="style" rel="stylesheet"/>
+    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" id="style" rel="stylesheet"/>
 
     <!-- STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet"/>
-    <link href="assets/css/plugins.css" rel="stylesheet"/>
-    <link href="assets/css/dark-style.css" rel="stylesheet"/>
-    <link href="assets/css/transparent-style.css" rel="stylesheet">
-    <link href="assets/css/skin-modes.css" rel="stylesheet"/>
+    <link href="../assets/css/style.css" rel="stylesheet"/>
+    <link href="../assets/css/plugins.css" rel="stylesheet"/>
+    <link href="../assets/css/dark-style.css" rel="stylesheet"/>
+    <link href="../assets/css/transparent-style.css" rel="stylesheet">
+    <link href="../assets/css/skin-modes.css" rel="stylesheet"/>
 
     <!--- FONT-ICONS CSS -->
-    <link href="assets/css/icons.css" rel="stylesheet"/>
+    <link href="../assets/css/icons.css" rel="stylesheet"/>
 
     <!-- COLOR SKIN CSS -->
-    <link href="assets/colors/color1.css" id="theme" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../assets/colors/color1.css" id="theme" media="all" rel="stylesheet" type="text/css"/>
 
     <!-- INTERNAL Switcher css -->
-    <link href="assets/switcher/css/switcher.css" rel="stylesheet"/>
-    <link href="assets/switcher/demo.css" rel="stylesheet"/>
+    <link href="../assets/switcher/css/switcher.css" rel="stylesheet"/>
+    <link href="../assets/switcher/demo.css" rel="stylesheet"/>
 
 
-    <link href="assets/fonts/styles-fa-num/iran-yekan.css" id="fonts" rel="stylesheet">
-    <link href="assets/css/rtl.css" rel="stylesheet"/>
+    <link href="../assets/fonts/styles-fa-num/iran-yekan.css" id="fonts" rel="stylesheet">
+    <link href="../assets/css/rtl.css" rel="stylesheet"/>
 </head>
 
 <body class="app sidebar-mini rtl">
@@ -184,13 +184,13 @@
                             </div>
                             <div class="switch-toggle d-flex mt-2">
                                 <a class="bg-img1" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage1" src="assets/images/media/bg-img1.jpg"></a>
+                                        alt="Bg-Image" id="bgimage1" src="../assets/images/media/bg-img1.jpg"></a>
                                 <a class="bg-img2" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage2" src="assets/images/media/bg-img2.jpg"></a>
+                                        alt="Bg-Image" id="bgimage2" src="../assets/images/media/bg-img2.jpg"></a>
                                 <a class="bg-img3" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage3" src="assets/images/media/bg-img3.jpg"></a>
+                                        alt="Bg-Image" id="bgimage3" src="../assets/images/media/bg-img3.jpg"></a>
                                 <a class="bg-img4" href="javascript:void(0);" onclick="bgImage(this)"><img
-                                        alt="Bg-Image" id="bgimage4" src="assets/images/media/bg-img4.jpg"></a>
+                                        alt="Bg-Image" id="bgimage4" src="../assets/images/media/bg-img4.jpg"></a>
                             </div>
                         </div>
                     </div>
@@ -431,7 +431,7 @@
 
 <!-- GLOBAL-LOADER -->
 <div id="global-loader">
-    <img alt="Loader" class="loader-img" src="assets/images/loader.svg">
+    <img alt="Loader" class="loader-img" src="../assets/images/loader.svg">
 </div>
 <!-- /GLOBAL-LOADER -->
 
@@ -565,7 +565,31 @@
                 </div>
 
         <!--app-content open-->
-
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">لیست انبار های موجود</h3>
+            </div>
+            <div class="card-body">
+                <a href="../inventory/add_inventory.html">
+                    <button class="btn btn-primary mb-4" id="table2-new-row-button"> تعریف انبار جدید
+                    </button>
+                </a>
+                <div class="table-responsive">
+                    <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+                        <thead>
+                        <tr>
+                            <th>نام انبار</th>
+                            <th>دسته بندی انبار</th>
+                            <th>موقعیت انبار</th>
+                            <th>طرفیت انبار</th>
+                            <th>متصدی</th>
+                        </thead>
+                        <tbody class="tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
         <!--app-content closed-->
     </div>
 
@@ -586,43 +610,75 @@
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
 <!-- JQUERY JS -->
-<script src="assets/js/jquery.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
 
 <!-- BOOTSTRAP JS -->
-<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- TypeHead js -->
-<script src="assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
-<script src="assets/js/typehead.js"></script>
+<script src="../assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
+<script src="../assets/js/typehead.js"></script>
 
 <!-- Perfect SCROLLBAR JS-->
-<script src="assets/plugins/p-scroll/perfect-scrollbar.js"></script>
-<script src="assets/plugins/p-scroll/pscroll.js"></script>
-<script src="assets/plugins/p-scroll/pscroll-1.js"></script>
+<script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+<script src="../assets/plugins/p-scroll/pscroll.js"></script>
+<script src="../assets/plugins/p-scroll/pscroll-1.js"></script>
 
 <!-- SIDE-MENU JS -->
-<script src="assets/plugins/sidemenu/sidemenu.js"></script>
+<script src="../assets/plugins/sidemenu/sidemenu.js"></script>
 
 <!-- SIDEBAR JS -->
-<script src="assets/plugins/sidebar/sidebar.js"></script>
+<script src="../assets/plugins/sidebar/sidebar.js"></script>
 
 <!-- Color Theme js -->
-<script src="assets/js/themeColors.js"></script>
+<script src="../assets/js/themeColors.js"></script>
 
 <!-- Sticky js -->
-<script src="assets/js/sticky.js"></script>
+<script src="../assets/js/sticky.js"></script>
 
 <!-- CUSTOM JS -->
-<script src="assets/js/custom.js"></script>
+<script src="../assets/js/custom.js"></script>
 
 <!-- Custom-switcher -->
-<script src="assets/js/custom-swicher.js"></script>
+<script src="../assets/js/custom-swicher.js"></script>
 
 <!-- Switcher js -->
-<script src="assets/switcher/js/switcher.js"></script>
+<script src="../assets/switcher/js/switcher.js"></script>
 
 </body>
 
+<script>
+$.ajax({
+url: 'http://127.0.0.1:8000/inventory/list', 
+method: 'POST',
+success: function(response) {
+    response.message.forEach((inventory) => {
+            $('.tbody').append(`
+            <tr>
+                <td>${inventory.name}</td>
+                <td>${inventory.category}</td>
+                <td>${inventory.location}</td>
+                <td>${inventory.capacity}</td>
+                <td>${inventory.manager}</td>
+                </td>
+            </tr>
+            `);
+        });
+},
+error: function(xhr) {
+    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+    if (xhr.responseJSON && xhr.responseJSON.error) {
+        errorMessage = xhr.responseJSON.error;
+    }
+    alert(errorMessage);
+},
+complete: function() {
+    $btn.prop('disabled', false).html('افزودن انبار');
+}
+});
+    $(".tbody").append(`
+`);
+</script>
 
 </html>

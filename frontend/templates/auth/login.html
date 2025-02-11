@@ -48,7 +48,6 @@
                                     <ul class="nav panel-tabs">
                                         <li class="mx-0"><a class="active" data-bs-toggle="tab" href="#tab5">ایمیل</a>
                                         </li>
-                                        <li class="mx-0"><a data-bs-toggle="tab" href="#tab6">موبایل</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -75,7 +74,7 @@
                                                 رمز؟</a></p>
                                         </div>
                                         <div class="container-login100-form-btn">
-                                            <a class="login100-form-btn btn-primary" href="../dashboard/dashboard.html">
+                                            <a class="login100-form-btn btn-primary loginBtn">
                                                 ورود
                                             </a>
                                         </div>
@@ -167,29 +166,41 @@
 <script src="../assets/switcher/js/switcher.js"></script>
 
 <script>
-    // Login
-$('#loginForm').submit(async function(e) {
-  e.preventDefault();
-  
-  try {
-    await $.ajax({
-      url: 'http://localhost:3333/login',
-      type: 'GET',
-      contentType: 'application/json',
-      data: JSON.stringify({
-        username: $('#loginUser').val(),
-        password: $('#loginPass').val()
-      }),
-      xhrFields: { withCredentials: true },
-      crossDomain: true // Required flag
+    $(document).ready(function() {
+        // Handle login button click
+        $('.loginBtn').click(function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const username = $('#loginUser').val();
+            const password = $('#loginPass').val();
+            
+            // Log to console (as requested)
+            console.log("Username:", username);
+            console.log("Password:", password);
+    
+            // AJAX request
+            $.ajax({
+                url: 'http://127.0.0.1:8000/auth/login',
+                method: 'POST',
+                data: {
+                    username: username,
+                    password: password
+                },
+                success: function(response) {
+                    if (response.status == '200'){
+                        window.location.href=response.message
+                    }else{
+                        alert(response.message);
+                    }
+                },
+                error: function(xhr) {
+                    alert(response.message);
+                }
+            });
+        });
     });
-    $('#loginResult').text('Login success').css('color', 'green');
-  } catch (err) {
-    $('#loginResult').text(err.responseJSON?.error || 'Login failed').css('color', 'red');
-  }
-});
-
-</script>
+    </script>
 
 </body>
 
