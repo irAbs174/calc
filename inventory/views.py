@@ -11,25 +11,31 @@ def create_new(request):
     inventory_category = request.POST.get("category")
     ctx = {}
     inventory_id = f"{inventory_name}&{inventory_capacity}&{inventory_location}&{personnal_id}&{inventory_category}"
-
-    if inventory.objects.filter(inventory_id=inventory_id).exists():
-        ctx = {
-            'icon': 'info',
-            'message': 'انبار از قبل موجود است',
-            'success': True
-        }
+    if inventory_name != "" and inventory_capacity != "" and inventory_location != "" and personnal_id != "" and inventory_category != "":
+        if inventory.objects.filter(inventory_id=inventory_id).exists():
+            ctx = {
+                'icon': 'info',
+                'message': 'انبار از قبل موجود است',
+                'success': True
+            }
+        else:
+            inventory.objects.create(
+                inventory_id = inventory_id,
+                inventory_name = inventory_name,
+                inventory_capacity = inventory_capacity,
+                inventory_location = inventory_location,
+                personnal_id = personnal_id,
+                inventory_category = inventory_category
+            )
+            ctx = {
+                'icon': 'success',
+                'message': 'انبار ایجاد شد',
+                'success': True
+            }
     else:
-        inventory.objects.create(
-            inventory_id = inventory_id,
-            inventory_name = inventory_name,
-            inventory_capacity = inventory_capacity,
-            inventory_location = inventory_location,
-            personnal_id = personnal_id,
-            inventory_category = inventory_category
-        )
         ctx = {
-            'icon': 'success',
-            'message': 'انبار ایجاد شد',
+            'icon': 'error',
+            'message': 'برخی از پرامتر ها خالی هستند',
             'success': True
         }
     return JsonResponse(ctx)
@@ -64,21 +70,29 @@ def create_new_category(request):
     ctx = {}
     category_id = f"{category_name}"
 
-    if cetegory.objects.filter(category_id=category_id).exists():
-        ctx = {
-            'icon': 'info',
-            'message': 'دسته بندی از قبل موجود است',
-            'success': True
-        }
+    if category_name != "" and category_desc != "":
+
+        if cetegory.objects.filter(category_id=category_id).exists():
+            ctx = {
+                'icon': 'info',
+                'message': 'دسته بندی از قبل موجود است',
+                'success': True
+            }
+        else:
+            cetegory.objects.create(
+                category_id = category_id,
+                category_name = category_name,
+                category_desc = category_desc,
+            )
+            ctx = {
+                'icon': 'success',
+                'message': 'دسته بندی ایجاد شد',
+                'success': True
+            }
     else:
-        cetegory.objects.create(
-            category_id = category_id,
-            category_name = category_name,
-            category_desc = category_desc,
-        )
         ctx = {
-            'icon': 'success',
-            'message': 'دسته بندی ایجاد شد',
+            'icon': 'error',
+            'message': 'برخی از پرامتر ها خالی هستند',
             'success': True
         }
     return JsonResponse(ctx)
@@ -108,20 +122,28 @@ def add_manager(request):
     ctx = {}
     manager_id = f"{personnal_id}"
 
-    if inventory_manager.objects.filter(manager_id=manager_id).exists():
-        ctx = {
-            'icon': 'info',
-            'message': 'انباردار از قبل موجود است',
-            'success': True
-        }
+    if personnal_id != '':
+
+        if inventory_manager.objects.filter(manager_id=manager_id).exists():
+            ctx = {
+                'icon': 'info',
+                'message': 'انباردار از قبل موجود است',
+                'success': True
+            }
+        else:
+            inventory_manager.objects.create(
+                manager_id = manager_id,
+                personnal_id = personnal_id,
+            )
+            ctx = {
+                'icon': 'success',
+                'message': 'انباردار ایجاد شد',
+                'success': True
+            }
     else:
-        inventory_manager.objects.create(
-            manager_id = manager_id,
-            personnal_id = personnal_id,
-        )
         ctx = {
-            'icon': 'success',
-            'message': 'انباردار ایجاد شد',
+            'icon': 'error',
+            'message': 'برخی از پرامتر ها خالی هستند',
             'success': True
         }
     return JsonResponse(ctx)

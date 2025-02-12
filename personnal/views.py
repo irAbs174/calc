@@ -13,30 +13,38 @@ def add_personal(request):
     personnal_salary = request.POST.get("personnal_salary")
     personnal_address = request.POST.get("personnal_address")
     personnal_melli_code = request.POST.get("personnal_melli_code")
-    
+
     ctx = {}
-    personal_id = f"{personnal_first_name}_{personnal_last_name}&{personnal_melli_code}"
-    if CorporatePersonnel.objects.filter(personnal_melli_code=personnal_melli_code).exists():
-        ctx = {
-            'icon': 'info',
-            'message': 'پرسنل با این کد ملی از قبل موجود است',
-            'success': False
-        }
+    if personnal_first_name != '' and personnal_last_name != '' and personnal_phone_number != '' and personnal_position != '' and personnal_department_id != '' and personnal_melli_code != '' :
+    
+        personal_id = f"{personnal_first_name}_{personnal_last_name}&{personnal_melli_code}"
+        if CorporatePersonnel.objects.filter(personnal_melli_code=personnal_melli_code).exists():
+            ctx = {
+                'icon': 'info',
+                'message': 'پرسنل با این کد ملی از قبل موجود است',
+                'success': False
+            }
+        else:
+            CorporatePersonnel.objects.create(
+                personal_id = personal_id,
+                personnal_first_name=personnal_first_name,
+                personnal_last_name=personnal_last_name,
+                personnal_phone_number=personnal_phone_number,
+                personnal_position=personnal_position,
+                personnal_type_status=personnal_type_status,
+                personnal_salary=personnal_salary,
+                personnal_address=personnal_address,
+                personnal_melli_code=personnal_melli_code,
+            )
+            ctx = {
+                'icon': 'success',
+                'message': 'پرسنل ایجاد شد',
+                'success': True
+            }
     else:
-        CorporatePersonnel.objects.create(
-            personal_id = personal_id,
-            personnal_first_name=personnal_first_name,
-            personnal_last_name=personnal_last_name,
-            personnal_phone_number=personnal_phone_number,
-            personnal_position=personnal_position,
-            personnal_type_status=personnal_type_status,
-            personnal_salary=personnal_salary,
-            personnal_address=personnal_address,
-            personnal_melli_code=personnal_melli_code,
-        )
         ctx = {
-            'icon': 'success',
-            'message': 'پرسنل ایجاد شد',
+            'icon': 'error',
+            'message': 'برخی از پرامتر ها خالی هستند',
             'success': True
         }
     return JsonResponse(ctx)
