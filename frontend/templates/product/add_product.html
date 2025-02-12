@@ -564,6 +564,179 @@
                     <!--/APP-SIDEBAR-->
                 </div>
 
+                        <!--app-content open-->
+<!--app-content open-->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header border-bottom-0">
+                <h3 class="card-title">افزودن کالای جدید</h3>
+            </div>
+            <div class="card-body">
+                <form id="productForm">
+                    <div class="list-group">
+                        <!-- بخش اطلاعات اصلی محصول -->
+                        <div class="list-group-item" data-acc-step>
+                            <h5 class="mb-0 d-flex" data-acc-title>
+                                <span class="form-wizard-title">اطلاعات اصلی محصول</span>
+                            </h5>
+                            <div data-acc-content>
+                                <div class="my-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>نام محصول <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="product_name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>کد محصول (SKU) <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" name="sku" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>دسته‌بندی <span class="text-danger">*</span></label>
+                                                <select class="form-select" name="category" required>
+                                                    <option value="">انتخاب کنید</option>
+                                                    <option value="1">الکترونیکی</option>
+                                                    <option value="2">لوازم خانگی</option>
+                                                    <option value="3">ابزارآلات</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>واحد اندازه‌گیری <span class="text-danger">*</span></label>
+                                                <select class="form-select" name="unit" required>
+                                                    <option value="">انتخاب کنید</option>
+                                                    
+                                                    <!-- واحدهای شمارشی -->
+                                                    <optgroup label="واحدهای شمارشی">
+                                                        <option value="piece">عدد</option>
+                                                        <option value="dozen">دوجین (12 عدد)</option>
+                                                        <option value="set">ست</option>
+                                                        <option value="pack">بسته</option>
+                                                        <option value="carton">کارتن</option>
+                                                        <option value="pallet">پالت</option>
+                                                    </optgroup>
+                                                    
+                                                    <!-- واحدهای وزنی -->
+                                                    <optgroup label="واحدهای وزنی">
+                                                        <option value="gram">گرم</option>
+                                                        <option value="kg">کیلوگرم</option>
+                                                        <option value="ton">تن</option>
+                                                        <option value="ounce">اونس</option>
+                                                        <option value="pound">پوند</option>
+                                                    </optgroup>
+                                                    
+                                                    <!-- واحدهای طولی -->
+                                                    <optgroup label="واحدهای طولی">
+                                                        <option value="mm">میلی‌متر</option>
+                                                        <option value="cm">سانتی‌متر</option>
+                                                        <option value="meter">متر</option>
+                                                        <option value="km">کیلومتر</option>
+                                                        <option value="inch">اینچ</option>
+                                                        <option value="foot">فوت</option>
+                                                        <option value="yard">یارد</option>
+                                                    </optgroup>
+                                                    
+                                                    <!-- واحدهای حجمی -->
+                                                    <optgroup label="واحدهای حجمی">
+                                                        <option value="ml">میلی‌لیتر</option>
+                                                        <option value="liter">لیتر</option>
+                                                        <option value="gallon">گالن</option>
+                                                        <option value="barrel">بشکه</option>
+                                                    </optgroup>
+                                                    
+                                                    <!-- واحدهای مساحت -->
+                                                    <optgroup label="واحدهای مساحت">
+                                                        <option value="cm2">سانتی‌متر مربع</option>
+                                                        <option value="m2">متر مربع</option>
+                                                        <option value="hectare">هکتار</option>
+                                                        <option value="acre">اکر</option>
+                                                    </optgroup>
+                                                    
+                                                    <!-- واحدهای دیگر -->
+                                                    <optgroup label="سایر واحدها">
+                                                        <option value="time">زمان (ساعت/دقیقه)</option>
+                                                        <option value="energy">انرژی (کیلووات ساعت)</option>
+                                                        <option value="temperature">دما (سانتی‌گراد)</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>قیمت پایه (ریال) <span class="text-danger">*</span></label>
+                                                <input type="number" class="form-control" name="price" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>موجودی اولیه <span class="text-danger">*</span></label>
+                                                <input type="number" class="form-control" name="stock" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>حداقل موجودی</label>
+                                                <input type="number" class="form-control" name="min_stock">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="is_active" id="isActive">
+                                                <label class="form-check-label" for="isActive">
+                                                    محصول فعال است
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بخش اطلاعات مالی و جزئیات -->
+                        <div class="list-group-item" data-acc-step>
+                            <h5 class="mb-0 d-flex" data-acc-title>
+                                <span class="form-wizard-title">اطلاعات انبارداری</span>
+                            </h5>
+                            <div data-acc-content>
+                                <div class="my-3">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>انتخاب انبار ذخیره سازی<span class="text-danger">*</span></label>
+                                                <select class="form-select" name="unit" required>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>توضیحات انبارداری</label>
+                                                <textarea class="form-control" rows="4" name="description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary">ثبت محصول</button>
+                        <button type="reset" class="btn btn-secondary">بازنشانی</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--app-content closed-->
+        <!--app-content closed-->
+
     </div>
 
     <!-- FOOTER -->

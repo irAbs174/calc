@@ -8,6 +8,7 @@
     <!-- BOOTSTRAP CSS -->
     <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" id="style" rel="stylesheet"/>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- STYLE CSS -->
     <link href="../assets/css/style.css" rel="stylesheet"/>
     <link href="../assets/css/plugins.css" rel="stylesheet"/>
@@ -499,24 +500,24 @@
                                             class="angle fe fe-chevron-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">مدیریت گردش محصول</a></li>
-                                        <li><a class="slide-item" href="../manage/new_product_input.html">ثبت ورودی کالا در انبار</a></li>
-                                        <li><a class="slide-item" href="../manage/new_product_output.html">ثبت خروجی کالا در انبار</a></li>
+                                        <li><a class="slide-item" href="../manage/new_product_input.html">ثبت ورودی کالا در کالا</a></li>
+                                        <li><a class="slide-item" href="../manage/new_product_output.html">ثبت خروجی کالا در کالا</a></li>
                                         <li><a class="slide-item" href="../manage/history.html">تاریخچه گردش کالاها</a></li>
                                     </ul>
                                 </li>
                                 <li class="slide">
                                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
                                             class="side-menu__icon fe fe-slack"></i><span
-                                            class="side-menu__label">مدیریت انبار</span><i
+                                            class="side-menu__label">مدیریت کالا</span><i
                                             class="angle fe fe-chevron-right"></i></a>
                                     <ul class="slide-menu">
-                                        <li class="side-menu-label1"><a href="javascript:void(0)">مدیریت انبار</a></li>
-                                        <li><a class="slide-item" href="../inventory/inventory_list.html">فهرست انبار ها</a></li>
-                                        <li><a class="slide-item" href="../inventory/add_inventory.html">ایجاد انبار</a></li>
-                                        <li><a class="slide-item" href="../inventory/category_list.html">فهرست دسته بندی انبار ها</a></li>
-                                        <li><a class="slide-item" href="../inventory/create_category.html">ایجاد دسته بندی انبار</a></li>
-                                        <li><a class="slide-item" href="../inventory/manager_list.html">فهرست انبار دار ها</a></li>
-                                        <li><a class="slide-item" href="../inventory/new_manager.html">تعریف انبار دار جدید</a></li>
+                                        <li class="side-menu-label1"><a href="javascript:void(0)">مدیریت کالا</a></li>
+                                        <li><a class="slide-item" href="../inventory/inventory_list.html">فهرست کالا ها</a></li>
+                                        <li><a class="slide-item" href="../inventory/add_inventory.html">ایجاد کالا</a></li>
+                                        <li><a class="slide-item" href="../inventory/category_list.html">فهرست دسته بندی کالا ها</a></li>
+                                        <li><a class="slide-item" href="../inventory/create_category.html">ایجاد دسته بندی کالا</a></li>
+                                        <li><a class="slide-item" href="../inventory/manager_list.html">فهرست کالا دار ها</a></li>
+                                        <li><a class="slide-item" href="../inventory/new_manager.html">تعریف کالا دار جدید</a></li>
                                     </ul>
                                 </li>
                                 <li class="slide">
@@ -564,6 +565,67 @@
                     <!--/APP-SIDEBAR-->
                 </div>
 
+        <!--app-content open-->
+        <div class="main-content app-content mt-0">
+            <div class="side-app">
+
+                <!-- CONTAINER -->
+                <div class="main-container container-fluid">
+
+                    <!-- PAGE-HEADER -->
+                    <div class="page-header">
+                        <h1 class="page-title">افزودن دسته بندی کالا</h1>
+                        <div>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="javascript:void(0)">کالا</a></li>
+                                <li aria-current="page" class="breadcrumb-item active">افزودن دسته بندی کالا جدید</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- PAGE-HEADER END -->
+
+                    <!-- ROW-1 OPEN -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">افزودن دسته بندی کالا جدید</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">نام دسته بندی کالا :</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control category_name" placeholder="نام دسته بندی کالا" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-md-3 form-label">توضیحات دسته بندی کالا :</label>
+                                        <div class="col-md-9">
+                                            <input class="form-control category_desc" placeholder="توضیحات دسته بندی کالا" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <!--Row-->
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-9">
+                                            <a class="btn btn-primary add_inventory_category_btn" href="javascript:void(0)">افزودن دسته بندی کالا</a>
+                                            <a class="btn btn-default float-end" href="../dashboard/dashboard.html">انصراف</a>
+                                        </div>
+                                    </div>
+                                    <!--End Row-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /ROW-1 CLOSED -->
+                </div>
+                <!-- CONTAINER CLOSED -->
+            </div>
+        </div>
+        <!--app-content closed-->
+        <!--app-content closed-->
     </div>
 
     <!-- FOOTER -->
@@ -619,6 +681,46 @@
 <!-- Switcher js -->
 <script src="../assets/switcher/js/switcher.js"></script>
 
+<script>
+    $(document).ready(function() {
+        
+        // Warehouse Form Submission
+        $('.add_inventory_category_btn').click(function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: $('.category_name').val(),
+                location: $('.category_desc').val(),
+            };
+
+            // AJAX Request
+            $.ajax({
+                url: 'http://127.0.0.1:8000/inventory/create_new_category', // Update with your actual endpoint
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    Swal.fire({
+                    title: response.message,
+                    icon: response.icon
+                    });
+                },
+                error: function(xhr) {
+                    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    }
+                    alert(errorMessage);
+                },
+                complete: function() {
+                    $btn.prop('disabled', false).html('افزودن کالا');
+                }
+            });
+        });
+    });
+    </script>
+
 </body>
+
 
 </html>
