@@ -8,6 +8,7 @@
     <!-- BOOTSTRAP CSS -->
     <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" id="style" rel="stylesheet"/>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- STYLE CSS -->
     <link href="../assets/css/style.css" rel="stylesheet"/>
     <link href="../assets/css/plugins.css" rel="stylesheet"/>
@@ -564,6 +565,102 @@
                     <!--/APP-SIDEBAR-->
                 </div>
 
+                <div class="main-content app-content mt-0">
+                    <div class="side-app">
+        
+                        <!-- CONTAINER -->
+                        <div class="main-container container-fluid">
+        
+                            <!-- PAGE-HEADER -->
+                            <div class="page-header">
+                                <h1 class="page-title">افزودن پرسنل جدید</h1>
+                                <div>
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">پرسنل سازمان</a></li>
+                                        <li aria-current="page" class="breadcrumb-item active">افزودن پرسنل جدید</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <!-- PAGE-HEADER END -->
+        
+                            <!-- ROW-1 OPEN -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="card-title">افزودن پرسنل جدید</div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">نام:</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control invenrory_name personnal_first_name" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">نام خانوادگی:</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control invenrory_name personnal_last_name" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">شماره موبایل :</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control inventory_capacity personnal_phone_number" type="phone">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">کد ملی :</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control personnal_melli_code" type="phone">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">سمت :</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control personnal_position" type="text">
+                                                </div>
+                                            </div>
+        
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">نوع همکاری :</label>
+                                                <div class="col-md-9">
+                                                    <select class="form-control form-select select2 personnal_type_status" data-bs-placeholder="Select Country"
+                                                            name="country">
+                                                            <option value="ثابت">ثابت</option>
+                                                            <option value="شناور">شناور</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">آدرس :</label>
+                                                <div class="col-md-9">
+                                                    <input class="form-control personnal_address" type="text">
+                                                </div>
+                                            </div>
+        
+                                            <!--End Row-->
+                                        </div>
+                                        <div class="card-footer">
+                                            <!--Row-->
+                                            <div class="row">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-9">
+                                                    <a class="btn btn-primary add_personal_btn" href="javascript:void(0)">تایید و پرنسل جدید</a>
+                                                    <a class="btn btn-default float-end" href="../dashboard/dashboard.html">انصراف</a>
+                                                </div>
+                                            </div>
+                                            <!--End Row-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /ROW-1 CLOSED -->
+                        </div>
+                        <!-- CONTAINER CLOSED -->
+                    </div>
+                </div>
     </div>
 
     <!-- FOOTER -->
@@ -618,6 +715,42 @@
 
 <!-- Switcher js -->
 <script src="../assets/switcher/js/switcher.js"></script>
+
+<script>
+    $(".add_personal_btn").click(function(e){
+        e.preventDefault();
+        const formData = {
+                personnal_first_name: $('.personnal_first_name').val(),
+                personnal_last_name: $('.personnal_last_name').val(),
+                personnal_phone_number: $('.personnal_phone_number').val(),
+                personnal_position: $('.personnal_position').val(),
+                personnal_type_status: $('.personnal_type_status').val(),
+                personnal_melli_code: $('.personnal_melli_code').val(),
+                personnal_address: $('.personnal_address').val()
+            };
+            $.ajax({
+                url: 'http://127.0.0.1:8000/personal/add_personal', // Update with your actual endpoint
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    Swal.fire({
+                    title: response.message,
+                    icon: response.icon
+                    });
+                },
+                error: function(xhr) {
+                    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    }
+                    alert(errorMessage);
+                },
+                complete: function() {
+                    $btn.prop('disabled', false).html('افزودن انبار');
+                }
+            });
+    })
+</script>
 
 </body>
 

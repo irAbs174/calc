@@ -15,17 +15,12 @@ class Department(models.Model):
 class CorporatePersonnel(models.Model):
     personal_id = models.CharField(max_length=100, verbose_name="شناسه پرسنلی", null=True, blank=True)
     personnal_department_id = models.CharField(max_length=255, verbose_name="بخش",null=True, blank=True)
-    personnal_type = [
-        ('نیروی ثابت', 'نیروی ثابت'),
-        ('نیروی شناور', 'نیروی شناور'),
-    ]
     personnal_first_name = models.CharField(max_length=100, verbose_name="نام", null=True, blank=True)
     personnal_last_name = models.CharField(max_length=100, verbose_name="نام خانوادگی", null=True, blank=True)
-    personnal_email = models.EmailField(unique=True, verbose_name="ایمیل", null=True, blank=True)
     personnal_phone_number = models.CharField(max_length=15, blank=True, null=True, verbose_name="شماره تلفن")
-    personnal_position = models.CharField(max_length=255, verbose_name="سمت شغلی")
-    personnal_date_hired = models.DateField(verbose_name="تاریخ استخدام")
-    personnal_type_status = models.CharField(max_length=20, choices=personnal_type, default='active', verbose_name="نوع استخدام")
+    personnal_position = models.CharField(max_length=255, verbose_name="سمت شغلی", blank=True, null=True)
+    personnal_date_hired = models.DateField(verbose_name="تاریخ استخدام", blank=True, null=True)
+    personnal_type_status = models.CharField(max_length=20, default='active', verbose_name="نوع استخدام", null=True, blank=True)
     personnal_salary = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name="حقوق")
     personnal_address = models.TextField(blank=True, null=True, verbose_name="آدرس")
     personnal_melli_code = models.TextField(blank=True, null=True, verbose_name="کد ملی")

@@ -563,7 +563,32 @@
                     </div>
                     <!--/APP-SIDEBAR-->
                 </div>
-
+        <!--app-content open-->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">لیست پرسنل سازمان</h3>
+            </div>
+            <div class="card-body">
+                <a href="../personal/add_personal.html">
+                    <button class="btn btn-primary mb-4" id="table2-new-row-button"> تعریف پرنسل جدید
+                    </button>
+                </a>
+                <div class="table-responsive">
+                    <table class="table table-bordered border text-nowrap mb-0" id="new-edit">
+                        <thead>
+                        <tr>
+                            <th>نام کامل</th>
+                            <th>شماره ملی</th>
+                            <th>شماره تماس</th>
+                            <th>نوع همکاری</th>
+                        </thead>
+                        <tbody class="tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--app-content closed-->
     </div>
 
     <!-- FOOTER -->
@@ -618,6 +643,40 @@
 
 <!-- Switcher js -->
 <script src="../assets/switcher/js/switcher.js"></script>
+
+</body>
+
+<script>
+$.ajax({
+url: 'http://127.0.0.1:8000/personal/personal_list', 
+method: 'POST',
+success: function(response) {
+    response.message.forEach((personal) => {
+            $('.tbody').append(`
+            <tr>
+                <td>${personal.id.split("&")[0]}</td>
+                <td>${personal.melli_code}</td>
+                <td>${personal.phone_number}</td>
+                <td>${personal.type_status}</td>
+            </tr>
+            `);
+        });
+},
+error: function(xhr) {
+    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+    if (xhr.responseJSON && xhr.responseJSON.error) {
+        errorMessage = xhr.responseJSON.error;
+    }
+    alert(errorMessage);
+},
+complete: function() {
+    $btn.prop('disabled', false).html('افزودن دسته بندی انبار');
+}
+});
+    $(".tbody").append(`
+`);
+</script>
+
 
 </body>
 
