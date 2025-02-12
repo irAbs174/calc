@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import inventory, cetegory
+from .models import *
 from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
@@ -10,7 +10,7 @@ def create_new(request):
     personnal_id = request.POST.get("manager")
     inventory_category = request.POST.get("category")
     ctx = {}
-    inventory_id = f"{inventory_name}{inventory_capacity}{inventory_location}{personnal_id}{inventory_category}"
+    inventory_id = f"{inventory_name}&{inventory_capacity}&{inventory_location}&{personnal_id}&{inventory_category}"
 
     if inventory.objects.filter(inventory_id=inventory_id).exists():
         ctx = {
@@ -92,6 +92,48 @@ def category_list(request):
                 'id': i.category_id,
                 'name': i.category_name,
                 'desc': i.category_desc,
+            }
+            )
+        
+        
+    return JsonResponse({
+        'status': '200',
+        'message': ctx,
+        'success': True,
+    })
+
+@csrf_exempt
+def add_manager(request):
+    personnal_id = request.POST.get("personnal_id")
+    ctx = {}
+    manager_id = f"{personnal_id}"
+
+    if inventory_manager.objects.filter(manager_id=manager_id).exists():
+        ctx = {
+            'icon': 'info',
+            'message': 'انباردار از قبل موجود است',
+            'success': True
+        }
+    else:
+        inventory_manager.objects.create(
+            manager_id = manager_id,
+            personnal_id = personnal_id,
+        )
+        ctx = {
+            'icon': 'success',
+            'message': 'انباردار ایجاد شد',
+            'success': True
+        }
+    return JsonResponse(ctx)
+
+@csrf_exempt
+def manager_list(request):
+    ctx = []
+    for i in inventory_manager.objects.all():
+        ctx.append(
+            {
+                'manager_id': i.manager_id,
+                'personnal_id': i.personnal_id,
             }
             )
         

@@ -615,7 +615,6 @@
                                         <div class="col-md-9">
                                             <select class="form-control form-select select2 inventory_manager" data-bs-placeholder="Select Country"
                                                     name="country">
-                                                <option value="تست">تست</option>
                                             </select>
                                         </div>
                                     </div>
@@ -625,7 +624,6 @@
                                         <div class="col-md-9">
                                             <select class="form-control form-select select2 inventory_category" data-bs-placeholder="Select Country"
                                                     name="country">
-                                                <option value="br">تست</option>
                                             </select>
                                         </div>
                                     </div>
@@ -710,7 +708,49 @@
 
 <script>
     $(document).ready(function() {
-        
+        $.ajax({
+            url: 'http://127.0.0.1:8000/inventory/manager_list', 
+            method: 'POST',
+            success: function(response) {
+                response.message.forEach((manager) => {
+                        $('.inventory_manager').append(`
+                    <option value="${manager.manager_id}">${manager.manager_id.split("&")[0]}</option>
+                        `);
+                    });
+            },
+            error: function(xhr) {
+                let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    errorMessage = xhr.responseJSON.error;
+                }
+                alert(errorMessage);
+            },
+            complete: function() {
+                $btn.prop('disabled', false).html('افزودن انبار');
+            }
+            });
+
+        $.ajax({
+            url: 'http://127.0.0.1:8000/inventory/category_list', 
+            method: 'POST',
+            success: function(response) {
+                response.message.forEach((category) => {
+                        $('.inventory_category').append(`
+                    <option value="${category.id}">${category.id}</option>
+                        `);
+                    });
+            },
+            error: function(xhr) {
+                let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    errorMessage = xhr.responseJSON.error;
+                }
+                alert(errorMessage);
+            },
+            complete: function() {
+                $btn.prop('disabled', false).html('افزودن انبار');
+            }
+            });
         // Warehouse Form Submission
         $('.add_inventory_btn').click(function(e) {
             e.preventDefault();

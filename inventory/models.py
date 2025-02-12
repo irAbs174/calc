@@ -34,3 +34,18 @@ class cetegory(models.Model):
     
     def __str__(self):
         return f"=> {self.category_name} <="
+
+class inventory_manager(models.Model):
+    manager_id = models.CharField(max_length=16, verbose_name='شناسه انباردار', null=True, blank=True)
+    personnal_id = models.CharField(max_length=16, verbose_name='شناسه پرسنلی', null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ تعریف انبار دار')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='آخرین بروز رسانی انباردار')
+    objects = models.Manager()
+    
+    class Meta:
+        verbose_name = 'انباردار'
+        verbose_name_plural = 'انباردار ها'
+        
+    
+    def __str__(self):
+        return f"=> {self.manager_id} <="

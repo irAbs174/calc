@@ -587,19 +587,8 @@
                                     <div class="row mb-4">
                                         <label class="col-md-3 form-label">لطفا یکی از پرسنل را به عنوان متصدی انبار انتخاب کنید</label>
                                         <div class="col-md-9">
-                                            <select class="form-control form-select select2 inventory_manager" data-bs-placeholder="Select Country"
+                                            <select class="form-control form-select select2 personal_select" data-bs-placeholder="Select Country"
                                                     name="country">
-                                                <option value="تست">تست</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="row mb-4">
-                                        <label class="col-md-3 form-label">یک انبار انتخاب کنید :</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control form-select select2 inventory_category" data-bs-placeholder="Select Country"
-                                                    name="country">
-                                                <option value="br">تست</option>
                                             </select>
                                         </div>
                                     </div>
@@ -611,7 +600,7 @@
                                     <div class="row">
                                         <div class="col-md-3"></div>
                                         <div class="col-md-9">
-                                            <a class="btn btn-primary add_inventory_btn" href="javascript:void(0)">افزودن انباردار</a>
+                                            <a class="btn btn-primary add_inventory_manager_btn" href="javascript:void(0)">افزودن انباردار</a>
                                             <a class="btn btn-default float-end" href="../dashboard/dashboard.html">انصراف</a>
                                         </div>
                                     </div>
@@ -683,6 +672,60 @@
 <script src="../assets/switcher/js/switcher.js"></script>
 
 </body>
+
+<script>
+    $.ajax({
+        url: 'http://127.0.0.1:8000/personal/personal_list', 
+    method: 'POST',
+    success: function(response) {
+        response.message.forEach((personal) => {
+                $('.personal_select').append(`
+                <option value="${personal.id}">${personal.id.split("&")[0]}</option>
+                `);
+            });
+    },
+    error: function(xhr) {
+        let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+        if (xhr.responseJSON && xhr.responseJSON.error) {
+            errorMessage = xhr.responseJSON.error;
+        }
+        alert(errorMessage);
+    },
+    complete: function() {
+        $btn.prop('disabled', false).html('افزودن انبار');
+    }
+    })
+    $(".add_inventory_manager_btn").click(function(e){
+        e.preventDefault();
+                    // Get form data
+            const formData = {
+                personnal_id: $('.personal_select').val(),
+            };
+
+            // AJAX Request
+            $.ajax({
+                url: 'http://127.0.0.1:8000/inventory/add_manager', // Update with your actual endpoint
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    Swal.fire({
+                    title: response.message,
+                    icon: response.icon
+                    });
+                },
+                error: function(xhr) {
+                    let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+                    if (xhr.responseJSON && xhr.responseJSON.error) {
+                        errorMessage = xhr.responseJSON.error;
+                    }
+                    alert(errorMessage);
+                },
+                complete: function() {
+                    $btn.prop('disabled', false).html('افزودن انبار');
+                }
+            });
+    })
+</script>
 
 
 </html>

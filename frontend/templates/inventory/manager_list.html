@@ -577,7 +577,6 @@
                                 <thead>
                                 <tr>
                                     <th>نام انباردار</th>
-                                    <th>نام انبار تحویل شده</th>
                                     <th>کد پرسنلی</th>
                                 </thead>
                                 <tbody class="tbody">
@@ -640,6 +639,36 @@
 
 <!-- Switcher js -->
 <script src="../assets/switcher/js/switcher.js"></script>
+
+<script>
+    $.ajax({
+    url: 'http://127.0.0.1:8000/inventory/manager_list', 
+    method: 'POST',
+    success: function(response) {
+        response.message.forEach((manager) => {
+                $('.tbody').append(`
+                <tr>
+                    <td>${manager.manager_id.split("&")[0]}</td>
+                    <td>${manager.manager_id}</td>
+                    </td>
+                </tr>
+                `);
+            });
+    },
+    error: function(xhr) {
+        let errorMessage = 'خطا در ارسال اطلاعات! لطفا مجددا تلاش کنید';
+        if (xhr.responseJSON && xhr.responseJSON.error) {
+            errorMessage = xhr.responseJSON.error;
+        }
+        alert(errorMessage);
+    },
+    complete: function() {
+        $btn.prop('disabled', false).html('افزودن انبار');
+    }
+    });
+        $(".tbody").append(`
+    `);
+    </script>
 
 </body>
 
