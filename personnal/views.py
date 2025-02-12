@@ -24,7 +24,7 @@ def add_personal(request):
         }
     else:
         CorporatePersonnel.objects.create(
-            personal_id = personnal_melli_code,
+            personal_id = personal_id,
             personnal_first_name=personnal_first_name,
             personnal_last_name=personnal_last_name,
             personnal_phone_number=personnal_phone_number,
